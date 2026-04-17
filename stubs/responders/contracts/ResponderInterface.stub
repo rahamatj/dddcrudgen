@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Domains\{{ model }}\Responders\Contracts;
+
+interface ResponderInterface
+{
+    public function index($data);
+    public function store($data);
+    public function show($data);
+    public function update($data);
+    public function destroy($data);
+}

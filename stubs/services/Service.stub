@@ -1,0 +1,39 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ useRepositoryInterface }}
+
+class {{ class }}
+{
+    public function __construct(
+        protected {{ repositoryInterface }} ${{ repositoryVar }}
+    ) {
+    }
+
+    public function index()
+    {
+        return $this->{{ repositoryVar }}->index();
+    }
+
+    public function store($data)
+    {
+        return $this->{{ repositoryVar }}->store($data);
+    }
+
+    public function show($id)
+    {
+        return $this->{{ repositoryVar }}->show($id); 
+    }
+
+    public function update($id, $data)
+    {
+        return $this->{{ repositoryVar }}->update($id, $data);
+    }
+
+    public function destroy($data)
+    {
+        return $this->{{ repositoryVar }}->destroy($data);
+    }
+}
+

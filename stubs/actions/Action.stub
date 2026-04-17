@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ serviceImport }};
+
+class {{ class }}
+{
+    public function __construct(
+        protected {{ service }} ${{ serviceVar }}
+    ) {}
+
+    public function execute($data = [])
+    {
+        if (!empty($data))
+            return $this->{{ serviceVar }}->{{ method }}($data);
+        else
+            return $this->{{ serviceVar }}->{{ method }}();
+    }
+}

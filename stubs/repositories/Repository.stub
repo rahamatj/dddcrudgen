@@ -1,0 +1,41 @@
+<?php
+
+namespace {{ namespace }};
+
+{{ useInterface }};
+{{ useModel }};
+
+class {{ class }} implements {{ interface }}
+{
+    public function index()
+    {
+        return {{ model }}::all();
+    }
+
+    public function create() {}
+
+    public function store($data)
+    {
+        return {{ model }}::create($data);
+    }
+
+    public function show($id)
+    {
+        return {{ model }}::findOrFail($id);
+    }
+
+    public function edit($id) {}
+
+    public function update($id, $data)
+    {
+        {{ modelVar }} = {{ model }}::findOrFail($id);
+        {{ modelVar }}->update($data);
+        return {{ modelVar }};
+    }
+
+    public function destroy($id)
+    {
+        {{ modelVar }} = {{ model }}::findOrFail($id);
+        return {{ modelVar }}->delete();
+    }
+}

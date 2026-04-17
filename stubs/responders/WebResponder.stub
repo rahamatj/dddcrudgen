@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Domains\{{ model }}\Responders;
+
+use App\Domains\{{ model }}\Responders\Contracts\ResponderInterface;
+
+class {{ responder }}WebResponder implements ResponderInterface
+{
+    public function index($data)
+    {
+        return 'index';
+    }
+
+    public function store($data)
+    {
+        return 'store';
+    }
+
+    public function show($data)
+    {
+        return 'show';
+    }
+
+    public function update($data)
+    {
+        return 'update';
+    }
+
+    public function destroy($data)
+    {
+        return 'destroy';
+    }
+}

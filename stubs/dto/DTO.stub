@@ -1,0 +1,18 @@
+<?php
+
+namespace {{ namespace }};
+
+class {{ class }}
+{
+    public function __construct(
+{{ fields }}
+    )
+    {}
+
+    public static function fromRequest($request)
+    {
+        return new self(
+{{ request_fields }}
+        );
+    }
+}

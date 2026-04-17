@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+// append imports
+
+class RepositoryServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+// append bindings
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        //
+    }
+}

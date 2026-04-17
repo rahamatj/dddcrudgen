@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Domains\{{ model }}\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Domains\{{ model }}\Actions\IndexAction;
+use App\Domains\{{ model }}\Actions\CreateAction;
+use App\Domains\{{ model }}\Actions\StoreAction;
+use App\Domains\{{ model }}\Actions\ShowAction;
+use App\Domains\{{ model }}\Actions\UpdateAction;
+use App\Domains\{{ model }}\Actions\DestroyAction;
+use App\Domains\{{ model }}\Requests\StoreRequest;
+use App\Domains\{{ model }}\Requests\UpdateRequest;
+use App\Domains\{{ model }}\Models\{{ model }};
+use App\Responders\Responder;
+
+class {{ model }}Controller extends Controller
+{
+    public function __construct(
+        protected IndexAction $indexAction,
+        protected CreateAction $createAction,
+        protected StoreAction $storeAction,
+        protected ShowAction $showAction,
+        protected UpdateAction $updateAction,
+        protected DestroyAction $destroyAction,
+    ) {}
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $data = $this->indexAction->execute();
+
+        return Responder::respond()->withJSON([
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+       return responder()->respond()->withView('posts.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreRequest $request)
+    {
+        $data = $this->storeAction->execute($request->validated());
+
+        return responder()->respond()->withJSON([
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show({{ model }} {{ modelVar }})
+    {
+        return responder()->respond()->withJSON([
+            'data' => {{ modelVar }}
+        ]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit({{ model }} {{ modelVar }})
+    {
+        return responder()->respond()->withView('posts.edit', [
+            'data' => {{ modelVar }}
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateRequest $request, {{ model }} {{ modelVar }})
+    {
+        $data = $this->updateAction->execute($request->validated());
+
+        return responder()->respond()->withJSON([
+            'data' => $data
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy({{ model }} {{ modelVar }})
+    {
+        $data = $this->destroyAction->execute();
+
+        return responder()->respond()->withJSON([
+            'data' => $data
+        ]);
+    }
+}

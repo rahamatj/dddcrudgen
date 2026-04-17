@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Domains\{{ model }}\Responders;
+
+use App\Domains\{{ model }}\Responders\Contracts\ResponderInterface;
+
+class {{ responder }}APIResponder implements ResponderInterface
+{
+    public function index($data)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    }
+
+    public function store($data)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    }
+
+    public function show($data)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    }
+
+    public function update($data)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    }
+
+    public function destroy($data)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $data
+        ]);
+    }
+}
